@@ -3,3 +3,8 @@ Header set Access-Control-Allow-Headers DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,
 Options +FollowSymLinks
 RewriteEngine on
 RewriteRule ^$ https://raw.githubusercontent.com/aligned-h2020/ALIGNED_Ontologies/master/dlo.ttl [R=302,L]
+# redirection for individual term hosted by BioPortal
+# eg https://w3id.org/dlo/ResNN =>
+# https://bioportal.bioontology.org/ontologies/DLO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2Fdlo/ResNN
+RewriteRule ^(.*)$ https://bioportal.bioontology.org/ontologies/DLO/?p=classes&conceptid=https%3A%2F%2Fw3id.org%2F$1 [R=302,L]
+
